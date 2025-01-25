@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #E6F2FF;
+        }
+        .signup-container {
+            background-color: #CBE2F3;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .signup-box {
+            background-color: #A6D1F0;
+            transition: transform 0.3s ease;
+        }
+        .signup-box:hover {
+            transform: scale(1.05);
+            background-color: #8BC6F2;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center">
+    <div class="signup-container p-12 text-center">
+        <h1 class="text-4xl font-bold text-blue-900 mb-8">Sign Up as</h1>
+        <div class="flex justify-center space-x-8">
+            <a href="workers.html" class="w-64 no-underline">
+                <div class="signup-box p-8 rounded-lg text-blue-900 shadow-md">
+                    <h2 class="text-2xl font-semibold">Worker</h2>
+                </div>
+            </a>
+            <a href="client.html" class="w-64 no-underline">
+                <div class="signup-box p-8 rounded-lg text-blue-900 shadow-md">
+                    <h2 class="text-2xl font-semibold">Client</h2>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
