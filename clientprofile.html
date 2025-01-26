@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #E6F2FF;
+        }
+        .profile-container {
+            background-color: #CBE2F3;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .worker-card {
+            transition: transform 0.3s ease;
+        }
+        .worker-card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center">
+    <div class="profile-container p-8 w-full max-w-2xl">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-3xl font-bold text-blue-900">User Profile</h1>
+            <button class="bg-blue-500 text-white px-4 py-2 rounded">Edit Profile</button>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow mb-6">
+            <h2 class="text-xl font-semibold mb-4">Personal Information</h2>
+            <p><strong>Name:</strong> John Doe</p>
+            <p><strong>Email:</strong> johndoe@example.com</p>
+            <p><strong>Location:</strong> Kerala, India</p>
+        </div>
+
+        <div class="mt-8">
+            <h2 class="text-2xl font-bold text-blue-900 mb-6">Available Workers</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="worker-card bg-white p-4 rounded-lg shadow text-center cursor-pointer" onclick="viewWorkerProfile('Carpenter')">
+                    <img src="/api/placeholder/100/100" alt="Carpenter" class="mx-auto mb-4 rounded-full">
+                    <h3 class="font-semibold">Carpenter</h3>
+                    <p class="text-sm text-gray-600">Construction Work</p>
+                </div>
+                <div class="worker-card bg-white p-4 rounded-lg shadow text-center cursor-pointer" onclick="viewWorkerProfile('Plumber')">
+                    <img src="/api/placeholder/100/100" alt="Plumber" class="mx-auto mb-4 rounded-full">
+                    <h3 class="font-semibold">Plumber</h3>
+                    <p class="text-sm text-gray-600">Plumbing Services</p>
+                </div>
+                <div class="worker-card bg-white p-4 rounded-lg shadow text-center cursor-pointer" onclick="viewWorkerProfile('Electrician')">
+                    <img src="/api/placeholder/100/100" alt="Electrician" class="mx-auto mb-4 rounded-full">
+                    <h3 class="font-semibold">Electrician</h3>
+                    <p class="text-sm text-gray-600">Electrical Work</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function viewWorkerProfile(workerType) {
+            window.location.href = `worker-profile.html?type=${workerType}`;
+        }
+    </script>
+</body>
+</html>

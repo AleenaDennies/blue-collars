@@ -1,0 +1,108 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+}
+
+
+main {
+    padding: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.worker-card {
+    border: 1px solid #ddd;
+    background-color: #fff;
+    margin-bottom: 15px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.worker-card:hover {
+    background-color: #f0f0f0;
+}
+
+.worker-card h3 {
+    margin-bottom: 5px;
+}
+
+.worker-card p {
+    margin-bottom: 5px;
+}
+
+#workerDetails {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+#profileDetails {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+#contactWorkerBtn,
+#backToWorkersBtn {
+    margin-top: 10px;
+    padding: 0.5em 1em;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#contactWorkerBtn:hover,
+#backToWorkersBtn:hover {
+    background-color: #777;
+}
+
+#contactInfo {
+    margin-top: 10px;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+#workerProfile {
+    display: flex;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+#profileImage {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #ddd;
+    margin-right: 10px;
+    background-color: #f4f4f4;
+}
+
+#profileDetailsSection {
+    display: flex;
+    flex-direction: column;
+}
+
+#profileName {
+    margin-bottom: 5px;
+}
+
+#profileData {
+    margin-left: 10px;
+}

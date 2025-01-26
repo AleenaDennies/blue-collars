@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blue Collar Worker Profile - Kerala</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #e6f2ff; 
+            max-width: 600px; 
+            margin: auto; 
+            padding: 20px; 
+            color: #333;
+        }
+        .profile-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #357abd;
+        }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <h1>Blue Collar Worker Profile</h1>
+        
+        <div class="btn-group">
+            <button id="personalBtn">Personal Info</button>
+            <button id="workBtn">Work Details</button>
+            <button id="contactBtn">Contact Info</button>
+        </div>
+
+        <div id="personalSection" class="hidden">
+            <h2>Personal Information</h2>
+            <p><strong>Name:</strong> Rajesh Kumar</p>
+            <p><strong>Age:</strong> 38</p>
+            <p><strong>Gender:</strong> Male</p>
+        </div>
+
+        <div id="workSection" class="hidden">
+            <h2>Work Details</h2>
+            <p><strong>Occupation:</strong> Skilled Mason</p>
+            <p><strong>Specialization:</strong> Construction and Masonry</p>
+            <p><strong>Years of Experience:</strong> 15</p>
+        </div>
+
+        <div id="contactSection" class="hidden">
+            <h2>Contact Information</h2>
+            <p><strong>Phone:</strong> +91 9876543210</p>
+            <p><strong>Location:</strong> Thrissur, Kerala</p>
+            <p><strong>Email:</strong> rajesh.kumar@example.com</p>
+        </div>
+    </div>
+
+    <script>
+        const buttons = {
+            personal: document.getElementById('personalBtn'),
+            work: document.getElementById('workBtn'),
+            contact: document.getElementById('contactBtn')
+        };
+
+        const sections = {
+            personal: document.getElementById('personalSection'),
+            work: document.getElementById('workSection'),
+            contact: document.getElementById('contactSection')
+        };
+
+        function showSection(sectionName) {
+            Object.keys(sections).forEach(key => {
+                sections[key].classList.toggle('hidden', key !== sectionName);
+            });
+        }
+
+        buttons.personal.addEventListener('click', () => showSection('personal'));
+        buttons.work.addEventListener('click', () => showSection('work'));
+        buttons.contact.addEventListener('click', () => showSection('contact'));
+    </script>
+</body>
+</html>
