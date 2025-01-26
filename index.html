@@ -4,7 +4,131 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trades Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #5a6775;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #3498db;
+        }
+        .auth-links {
+            display: flex;
+            align-items: center;
+        }
+        .auth-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .auth-links .signup {
+            background-color: #c81818;
+        }
+        .auth-links .signup:hover {
+            background-color: #3b302e;
+        }
+        .auth-links .login:hover {
+            background-color: rgba(88, 76, 76, 0.2);
+        }
+        .hero {
+            background: linear-gradient(135deg, #7f9bb6, #1f455f);
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .button {
+            display: inline-block;
+            background-color: #3a363f;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #5a5a6b;
+        }
+        .featured-workers {
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        .featured-workers h2 {
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
+        .worker-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .worker-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+        .worker-card:hover {
+            transform: scale(1.05);
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -12,20 +136,35 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="workers.html">Find Workers</a></li>
-                <li><a href="/about.html">About Us</a></li>
+                <li><a href="about.html">About Us</a></li>
             </ul>
         </nav>
+        <div class="auth-links">
+            <a href="login.html" class="login">Log In</a>
+            <a href="signup.html" class="signup">Sign Up</a>
+        </div>
     </header>
     <main>
         <section class="hero">
             <h1>Showcase Your Skills and Find Local Talent</h1>
             <p>Browse portfolios of experienced blue-collar workers in your area.</p>
-           <a href="workers.html" class="button">Browse Workers</a>
+            <a href="workers.html" class="button">Browse Workers</a>
         </section>
         <section class="featured-workers">
             <h2>Featured Workers</h2>
             <div class="worker-grid">
-               <!-- Worker cards will be here  -->
+                <div class="worker-card">
+                    <h3>John Carpenter</h3>
+                    <p>Master Carpenter with 15 years of experience</p>
+                </div>
+                <div class="worker-card">
+                    <h3>Sarah Plumber</h3>
+                    <p>Licensed Plumber specializing in residential repairs</p>
+                </div>
+                <div class="worker-card">
+                    <h3>Mike Electrician</h3>
+                    <p>Commercial and residential electrical work</p>
+                </div>
             </div>
         </section>
     </main>
@@ -33,4 +172,4 @@
         <p>© 2025 Trades Portfolio</p>
     </footer>
 </body>
-</html>                             
+</html>
