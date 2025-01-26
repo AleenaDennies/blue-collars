@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker Profiles</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #E6F2FF;
+        }
+        .filter-container {
+            background-color: #CBE2F3;
+        }
+        .profile-card {
+            background-color: #A6D1F0;
+            transition: transform 0.3s ease;
+        }
+        .profile-card:hover {
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="container mx-auto p-8">
+        <div class="filter-container p-6 rounded-lg mb-8">
+            <div class="grid md:grid-cols-3 gap-4">
+                <select id="profession" class="w-full p-3 rounded-lg bg-white">
+                    <option value="">Select Profession</option>
+                    <option value="carpenter">Carpenter</option>
+                    <option value="plumber">Plumber</option>
+                    <option value="electrician">Electrician</option>
+                    <option value="driver">Driver</option>
+                </select>
+                <input type="text" id="city" placeholder="City" class="w-full p-3 rounded-lg">
+                <button onclick="filterWorkers()" class="bg-blue-500 text-white p-3 rounded-lg">
+                    Search Workers
+                </button>
+            </div>
+        </div>
+
+        <div id="worker-list" class="grid md:grid-cols-3 gap-6">
+            <!-- Worker Profile Cards Will Dynamically Load Here -->
+        </div>
+    </div>
+
+    <script>
+        const workers = [
+            {
+                name: "John Doe",
+                profession: "carpenter",
+                city: "New York",
+                experience: 5,
+                phone: "123-456-7890"
+            },
+            {
+                name: "Jane Smith", 
+                profession: "carpenter",
+                city: "New York", 
+                experience: 3,
+                phone: "987-654-3210"
+            }
+            // More worker profiles can be added
+        ];
+
+        function filterWorkers() {
+            const profession = document.getElementById('profession').value;
+            const city = document.getElementById('city').value.toLowerCase();
+            const workerList = document.getElementById('worker-list');
+
+            workerList.innerHTML = '';
+
+            const filteredWorkers = workers.filter(worker => 
+                (profession === '' || worker.profession === profession) &&
+                (city === '' || worker.city.toLowerCase().includes(city))
+            );
+
+            filteredWorkers.forEach(worker => {
+                const card = document.createElement('div');
+                card.className = 'profile-card p-6 rounded-lg shadow-md';
+                card.innerHTML = `
+                    <h3 class="text-xl font-bold mb-2">${worker.name}</h3>
+                    <p>Profession: ${worker.profession}</p>
+                    <p>City: ${worker.city}</p>
+                    <p>Experience: ${worker.experience} years</p>
+                    <p>Contact: ${worker.phone}</p>
+                `;
+                workerList.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>

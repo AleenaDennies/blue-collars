@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker Profiles</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #E6F2FF;
+        }
+        .filter-container {
+            background-color: #CBE2F3;
+        }
+        .profile-card {
+            background-color: #A6D1F0;
+            transition: transform 0.3s ease;
+        }
+        .profile-card:hover {
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="container mx-auto p-8">
+        <div class="filter-container p-6 rounded-lg mb-8">
+            <div class="grid md:grid-cols-3 gap-4">
+                <select id="profession" class="w-full p-3 rounded-lg bg-white">
+                    <option value="">Select Profession</option>
+                    <option value="carpenter">Carpenter</option>
+                    <option value="plumber">Plumber</option>
+                    <option value="electrician">Electrician</option>
+                    <option value="driver">Driver</option>
+                </select>
+                <input type="text" id="city" placeholder="City" class="w-full p-3 rounded-lg">
+                <button onclick="filterWorkers()" class="bg-blue-500 text-white p-3 rounded-lg">
+                    Search Workers
+                </button>
+            </div>
+        </div>
+
+        <div id="worker-list" class="grid md:grid-cols-3 gap-6">
+            <!-- Worker Profile Cards Will Dynamically Load Here -->
+        </div>
+    </div>
+
+    <script>
+        const workers = [
+            // Carpenters
+            {
+                name: "Rajesh Kumar",
+                profession: "carpenter",
+                city: "Thiruvananthapuram",
+                experience: 8,
+                phone: "98765-43210"
+            },
+            {
+                name: "Manoj Pillai",
+                profession: "carpenter",
+                city: "Kochi",
+                experience: 5,
+                phone: "98675-12340"
+            },
+            {
+                name: "Ravi Menon",
+                profession: "carpenter",
+                city: "Kozhikode",
+                experience: 10,
+                phone: "98235-67890"
+            },
+            // Electricians
+            {
+                name: "Suresh Nair",
+                profession: "electrician",
+                city: "Thiruvananthapuram",
+                experience: 6,
+                phone: "98567-89012"
+            },
+            {
+                name: "Anil Thomas",
+                profession: "electrician",
+                city: "Kochi",
+                experience: 7,
+                phone: "98765-09876"
+            },
+            {
+                name: "Pradeep Varma",
+                profession: "electrician",
+                city: "Kozhikode",
+                experience: 9,
+                phone: "98230-45678"
+            },
+            // Drivers
+            {
+                name: "Vijay Krishnan",
+                profession: "driver",
+                city: "Thiruvananthapuram",
+                experience: 4,
+                phone: "98345-67890"
+            },
+            {
+                name: "Arun Joseph",
+                profession: "driver",
+                city: "Kochi",
+                experience: 6,
+                phone: "98765-45612"
+            },
+            {
+                name: "Mohanlal S",
+                profession: "driver",
+                city: "Kozhikode",
+                experience: 5,
+                phone: "98540-78912"
+            },
+            // Plumbers
+            {
+                name: "Binu Mathew",
+                profession: "plumber",
+                city: "Thiruvananthapuram",
+                experience: 8,
+                phone: "98245-32109"
+            },
+            {
+                name: "George Philip",
+                profession: "plumber",
+                city: "Kochi",
+                experience: 7,
+                phone: "98456-78901"
+            },
+            {
+                name: "Shyam Sundar",
+                profession: "plumber",
+                city: "Kozhikode",
+                experience: 5,
+                phone: "98321-45678"
+            }
+        ];
+
+        function filterWorkers() {
+            const profession = document.getElementById('profession').value;
+            const city = document.getElementById('city').value.toLowerCase();
+            const workerList = document.getElementById('worker-list');
+
+            workerList.innerHTML = '';
+
+            const filteredWorkers = workers.filter(worker => 
+                (profession === '' || worker.profession === profession) &&
+                (city === '' || worker.city.toLowerCase().includes(city))
+            );
+
+            if (filteredWorkers.length === 0) {
+                workerList.innerHTML = '<p class="text-center text-gray-500">No workers found matching the criteria.</p>';
+            }
+
+            filteredWorkers.forEach(worker => {
+                const card = document.createElement('div');
+                card.className = 'profile-card p-6 rounded-lg shadow-md';
+                card.innerHTML = `
+                    <h3 class="text-xl font-bold mb-2">${worker.name}</h3>
+                    <p>Profession: ${worker.profession}</p>
+                    <p>City: ${worker.city}</p>
+                    <p>Experience: ${worker.experience} years</p>
+                    <p>Contact: ${worker.phone}</p>
+                `;
+                workerList.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>
